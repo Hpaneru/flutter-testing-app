@@ -37,42 +37,40 @@ class _LoginScreenState extends State<LoginScreen> {
         title: const Text('Login'),
       ),
       body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Form(
-              key: _formKey,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  CustomTextField(
-                    autovalidateMode: autoValidate,
-                    hintText: "Enter your email",
-                    validator: FieldValidator.validateEmail,
-                    onChanged: (String value) {
-                      email = value;
-                    },
-                  ),
-                  const SizedBox(height: 20),
-                  CustomTextField(
-                    autovalidateMode: autoValidate,
-                    hintText: "Enter your password",
-                    obscureText: true,
-                    validator: FieldValidator.validatePassword,
-                    onChanged: (String value) {
-                      password = value;
-                    },
-                  ),
-                  const SizedBox(height: 30),
-                  TextButton(
-                    onPressed: onLogin,
-                    child: const Text("LOGIN"),
-                  )
-                ],
-              ),
+        child: Form(
+          key: _formKey,
+          child: Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                CustomTextField(
+                  autovalidateMode: autoValidate,
+                  hintText: "Enter your email",
+                  validator: FieldValidator.validateEmail,
+                  onChanged: (String value) {
+                    email = value;
+                  },
+                ),
+                const SizedBox(height: 20),
+                CustomTextField(
+                  autovalidateMode: autoValidate,
+                  hintText: "Enter your password",
+                  obscureText: true,
+                  validator: FieldValidator.validatePassword,
+                  onChanged: (String value) {
+                    password = value;
+                  },
+                ),
+                const SizedBox(height: 30),
+                TextButton(
+                  onPressed: onLogin,
+                  child: const Text("LOGIN"),
+                )
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );

@@ -32,50 +32,49 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: MediaQuery.of(context).size.width / 6.5,
-      child: TextFormField(
-        onTap: onTap,
-        keyboardType: textInputType,
-        decoration: InputDecoration(
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10.0),
-            borderSide: BorderSide(
-              color: AppColors.labelColor,
-            ),
+    return TextFormField(
+      onTap: onTap,
+      keyboardType: textInputType,
+      decoration: InputDecoration(
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.0),
+          borderSide: BorderSide(
+            color: AppColors.labelColor,
           ),
-          enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: AppColors.labelColor,
-            ),
-          ),
-          disabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: AppColors.labelColor,
-            ),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: AppColors.primaryColor,
-            ),
-          ),
-          filled: true,
-          fillColor: AppColors.textFieldBgColor,
-          hintText: hintText,
-          hintStyle: Theme.of(context).primaryTextTheme.subtitle1,
-          suffixIcon: suffixIconWidget,
         ),
-        obscureText: obscureText,
-        enabled: enabled,
-        autovalidateMode: autovalidateMode,
-        textCapitalization: textCapitalization,
-        initialValue: initialValue,
-        controller: controller,
-        onChanged: (value) => onChanged?.call(value),
-        onFieldSubmitted: (value) => onFieldSubmit?.call(value),
-        onSaved: (value) => onFieldSubmit?.call(value!),
-        validator: (value) => validator?.call(value!),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: AppColors.labelColor,
+          ),
+        ),
+        disabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: AppColors.labelColor,
+          ),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: AppColors.primaryColor,
+          ),
+        ),
+        filled: true,
+        fillColor: AppColors.textFieldBgColor,
+        hintText: hintText,
+        hintStyle: Theme.of(context).primaryTextTheme.subtitle1!.copyWith(
+              color: AppColors.labelColor,
+            ),
+        suffixIcon: suffixIconWidget,
       ),
+      obscureText: obscureText,
+      enabled: enabled,
+      autovalidateMode: autovalidateMode,
+      textCapitalization: textCapitalization,
+      initialValue: initialValue,
+      controller: controller,
+      onChanged: (value) => onChanged?.call(value),
+      onFieldSubmitted: (value) => onFieldSubmit?.call(value),
+      onSaved: (value) => onFieldSubmit?.call(value!),
+      validator: (value) => validator?.call(value!),
     );
   }
 }
